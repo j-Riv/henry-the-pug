@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create Blog List Pages
   const blogListTemplate = path.resolve(`./src/templates/blog-list.tsx`)
   const posts = allWpPost.edges
-  const postsPerPage = 10
+  const postsPerPage = 18
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({

@@ -2,11 +2,16 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
+import GridImage from '../components/gridImage'
 import styled from 'styled-components'
 
-const Title = styled.h3`
-  margin-bottom: ${rhythm(1 / 4)};
+const Grid = styled.div`
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const StyledLink = styled(Link)`
@@ -62,22 +67,11 @@ const BlogList = ({ data, pageContext }: Props) => {
   return (
     <Layout location={window.location} title={siteTitle}>
       <SEO title="All posts" />
-      {posts.map(({ node }: any) => {
-        const title = node.title || node.slug
-        return (
-          <div key={node.slug}>
-            <Title>
-              <StyledLink to={`/blog/` + node.slug}>{title}</StyledLink>
-            </Title>
-            <small>{node.date}</small>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: node.content || node.excerpt,
-              }}
-            />
-          </div>
-        )
-      })}
+      <Grid>
+        {posts.map(({ node }: any) => {
+          return <GridImage key={node.slug} node={node} />
+        })}
+      </Grid>
       <div>
         {!isFirst && (
           <StyledPaginationLink to={`/blog` + prevPage} rel="prev">
@@ -116,9 +110,25 @@ export const pageQuery = graphql`
       edges {
         node {
           content
-          date
           slug
+          date
           title
+          featuredImage {
+            node {
+              sourceUrl
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 400, quality: 100) {
+                    originalName
+                    originalImg
+                    src
+                    sizes
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
