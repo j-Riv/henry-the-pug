@@ -15,6 +15,7 @@ const Grid = styled.div`
   display: grid;
   gap: 0.5rem;
   grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 5px;
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -60,7 +61,7 @@ const BlogIndex = ({ data }: Props) => {
 
   return (
     <Layout location={window.location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="I am Henry" />
       <Hero />
       <About about={about} />
       <Grid>

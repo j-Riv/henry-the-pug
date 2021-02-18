@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Nav from './nav'
+import Footer from './footer'
 
 const Container = styled.div`
   margin-left: auto;
@@ -12,16 +13,6 @@ const Container = styled.div`
   main {
     padding-top: ${(props: { paddingTop: number }) => `${props.paddingTop}px`};
   }
-  footer {
-    text-align: center;
-    color: #fff;
-  }
-`
-
-const StyledLink = styled(Link)`
-  box-shadow: none;
-  text-decoration: none;
-  color: inherit;
 `
 
 interface Props {
@@ -30,7 +21,7 @@ interface Props {
   children?: any
 }
 
-const Layout = ({ location, title, children }: Props) => {
+const Layout: React.FC<Props> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let paddingTop = 72
   let backgroundColor = 'black'
@@ -38,18 +29,34 @@ const Layout = ({ location, title, children }: Props) => {
     paddingTop = 0
     backgroundColor = 'transparent'
   }
+
+  const [scrollState, setScrollState] = useState(backgroundColor)
+
+  const handleScroll = () => {
+    if (location.pathname === rootPath) {
+      if (window.scrollY > 50) {
+        setScrollState('black')
+      } else {
+        setScrollState('transparent')
+      }
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleScroll])
+
   return (
     <Container paddingTop={paddingTop}>
-      <Nav position="absolute" backgroundColor={backgroundColor} />
+      <Nav position="absolute" backgroundColor={scrollState} />
       <main>
         {/* <StyledLink to={`/blog`}>All Posts</StyledLink> */}
         {children}
       </main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </Container>
   )
 }

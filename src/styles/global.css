@@ -1,12 +1,14 @@
 /* Global CSS */
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400|Space+Mono:400');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap'); */
 
 :root {
   /* Define Colors as Colors */
   --green: #00ebc7;
   --red: #ff5470;
   --yellow: #fde24f;
-  --black: #1b2d45;
+  --black: #000000;
   --darkBlue: #00214d;
   --grey: #bfbfbf;
   --lightGrey: #f2f4f6;
@@ -15,8 +17,8 @@
   /* Define Colors Inentions */
   --primary: var(--green);
   --danger: var(--red);
-  --background: var(--lightGrey);
-  --textColor: var(--black);
+  --background: var(--black);
+  --textColor: var(--lightGrey);
   --buttonTextColor: var(--black);
   --lineColor: var(--grey);
   --cardBg: var(--white);
@@ -58,7 +60,7 @@ body {
   font-family: var(--bodyFont);
   font-weight: 400;
   line-height: 1.75;
-  background: var(--background);
+  background-color: var(--background);
   color: var(--textColor);
   margin: 0;
 }
@@ -93,4 +95,9 @@ h4 {
 
 h5 {
   font-size: var(--h5);
+}
+
+.gatsby-image-wrapper img[src*='base64\\,'] {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
 }

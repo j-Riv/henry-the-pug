@@ -39,7 +39,10 @@ const GridImage = (props: Props) => {
     <Container>
       <Link to={`/blog/${node.slug}`}>
         <Img
-          fluid={node.featuredImage.node.localFile.childImageSharp.fluid}
+          fluid={{
+            ...node.featuredImage.node.localFile.childImageSharp.fluid,
+            aspectRatio: 1,
+          }}
           alt={node.title}
         />
       </Link>
