@@ -1,29 +1,16 @@
-import React from "react"
-import { Link } from "gatsby"
-import { rhythm } from "../utils/typography"
-import styled from "styled-components"
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import Nav from './nav'
+import Footer from './footer'
 
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  max-width: ${rhythm(24)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-`
-
-const StyledLargeTitle = styled.h1`
-  margin-bottom: rhythm(1.5);
-  margin-top: 0;
-`
-
-const StyledSmallTitle = styled.h3`
-  font-family: Montserrat, sans-serif;
-  margin-top: 0;
-`
-
-const StyledLink = styled(Link)`
-  box-shadow: none;
-  text-decoration: none;
-  color: inherit;
+  max-width: 100%;
+  background: black;
+  main {
+    padding-top: ${(props: { paddingTop: number }) => `${props.paddingTop}px`};
+  }
 `
 
 interface Props {
@@ -32,34 +19,39 @@ interface Props {
   children?: any
 }
 
-const Layout = ({ location, title, children }: Props) => {
+const Layout: React.FC<Props> = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  let header
-
+  let paddingTop = 72
+  let backgroundColor = 'black'
   if (location.pathname === rootPath) {
-    header = (
-      <StyledLargeTitle>
-        <StyledLink to={`/`}>{title}</StyledLink>
-      </StyledLargeTitle>
-    )
-  } else {
-    header = (
-      <StyledSmallTitle>
-        <StyledLink to={`/`}>{title}</StyledLink>
-      </StyledSmallTitle>
-    )
+    paddingTop = 0
+    backgroundColor = 'transparent'
   }
 
+  const [scrollState, setScrollState] = useState(backgroundColor)
+
+  const handleScroll = () => {
+    if (location.pathname === rootPath) {
+      if (window.scrollY > 50) {
+        setScrollState('black')
+      } else {
+        setScrollState('transparent')
+      }
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleScroll])
+
   return (
-    <Container>
-      <header>{header}</header>
-      <StyledLink to={`/blog`}>All Posts</StyledLink>
+    <Container paddingTop={paddingTop}>
+      <Nav position="absolute" backgroundColor={scrollState} />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </Container>
   )
 }
