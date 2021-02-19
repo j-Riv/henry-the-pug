@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Nav from './nav'
 import Footer from './footer'
@@ -8,7 +7,6 @@ const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 100%;
-  /* padding: 15px; */
   background: black;
   main {
     padding-top: ${(props: { paddingTop: number }) => `${props.paddingTop}px`};
@@ -21,7 +19,7 @@ interface Props {
   children?: any
 }
 
-const Layout: React.FC<Props> = ({ location, title, children }) => {
+const Layout: React.FC<Props> = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let paddingTop = 72
   let backgroundColor = 'black'
@@ -52,10 +50,7 @@ const Layout: React.FC<Props> = ({ location, title, children }) => {
   return (
     <Container paddingTop={paddingTop}>
       <Nav position="absolute" backgroundColor={scrollState} />
-      <main>
-        {/* <StyledLink to={`/blog`}>All Posts</StyledLink> */}
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </Container>
   )

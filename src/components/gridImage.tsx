@@ -33,7 +33,7 @@ interface Props {
   }
 }
 
-const GridImage = (props: Props) => {
+const GridImage: React.FC<Props> = props => {
   const { node } = props
   return (
     <Container>

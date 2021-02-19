@@ -33,9 +33,7 @@
         "react-typography": "^0.16.19",
         "styled-components": "^5.1.1",
         "typeface-merriweather": "1.1.13",
-        "typeface-montserrat": "1.1.13",
-        "typography": "^0.16.19",
-        "typography-theme-wordpress-2016": "^0.16.19"
+        "typeface-montserrat": "1.1.13"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^3.10.1",

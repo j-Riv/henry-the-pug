@@ -22,7 +22,7 @@ interface Props {
   numPages: number
 }
 
-const Pagination = (props: Props) => {
+const Pagination: React.FC<Props> = props => {
   const { currentPage, numPages } = props
   console.log('currentPage', currentPage)
   console.log('numPages', numPages)

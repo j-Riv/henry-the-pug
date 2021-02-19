@@ -28,12 +28,11 @@ const Overlay = styled.div`
   }
 `
 
-const BgImage = styled(Img)`
+const BackgroundImage = styled(Img)`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  /* z-index: -1; */
   height: ${(props: Props) => props.height || '100vh'};
   & > img {
     object-fit: ${(props: Props) => props.fit || 'cover'};
@@ -49,7 +48,7 @@ interface Props {
   children?: any
 }
 
-const Hero = (props: Props) => {
+const Hero: React.FC<Props> = () => {
   const { heroImage } = useStaticQuery(
     graphql`
       query {
@@ -66,7 +65,7 @@ const Hero = (props: Props) => {
 
   return (
     <Container>
-      <BgImage
+      <BackgroundImage
         fluid={heroImage.childImageSharp.fluid}
         fit="cover"
         height="100vh"

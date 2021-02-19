@@ -10,7 +10,7 @@ const Container = styled.footer`
   align-items: center;
 `
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <Container>
       © {new Date().getFullYear()}, Henry the Pug - Built with

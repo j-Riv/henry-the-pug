@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const NavBar = styled.div`
-  /* position: ${(props: Props) => props.position || 'fixed'}; */
   position: fixed;
   width: 100%;
   top: 0;
@@ -58,7 +57,7 @@ interface Props {
   backgroundColor: string
 }
 
-const Nav = (props: Props) => {
+const Nav: React.FC<Props> = props => {
   const { logo } = useStaticQuery(
     graphql`
       query {

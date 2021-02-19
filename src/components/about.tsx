@@ -48,7 +48,7 @@ interface Props {
   }
 }
 
-const About = (props: Props) => {
+const About: React.FC<Props> = props => {
   const { about } = props
   return (
     <Container>

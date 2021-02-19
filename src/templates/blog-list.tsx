@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import GridImage from '../components/gridImage'
@@ -43,7 +43,7 @@ interface Props {
   }
 }
 
-const BlogList = ({ data, pageContext }: Props) => {
+const BlogList: React.FC<Props> = ({ data, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allWpPost.edges
 

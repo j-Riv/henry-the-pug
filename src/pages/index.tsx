@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import styled from 'styled-components'
@@ -54,7 +54,7 @@ interface Props {
   }
 }
 
-const BlogIndex = ({ data }: Props) => {
+const BlogIndex: React.FC<Props> = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const about = data.wpPage
   const posts = data.allWpPost.edges

@@ -60,7 +60,7 @@ interface Props {
   }
 }
 
-const Post = ({ data }: Props) => {
+const Post: React.FC<Props> = ({ data }) => {
   const post = data.wpPost
 
   return (
