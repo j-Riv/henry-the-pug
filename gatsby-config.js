@@ -55,20 +55,20 @@ module.exports = {
         // ex: `https://example.com/graphql`,
         url: process.env.WP_URL,
         verbose: true,
-        html: {
-          imageMaxWidth: 800,
-          imageQuality: 80,
-        },
-        schema: {
-          timeout: 120000,
-          requestConcurrency: 50,
-          perPage: 50,
-        },
-        type: {
-          __all: {
-            limit: 500,
-          },
-        },
+        // html: {
+        //   imageMaxWidth: 800,
+        //   imageQuality: 80,
+        // },
+        // schema: {
+        //   timeout: 120000,
+        //   requestConcurrency: 50,
+        //   perPage: 50,
+        // },
+        // type: {
+        //   __all: {
+        //     limit: 500,
+        //   },
+        // },
         develop: {
           hardCacheMediaFiles: true,
         },

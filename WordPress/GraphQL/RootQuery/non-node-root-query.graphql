@@ -38,12 +38,6 @@ query NON_NODE_QUERY {
     postsPerPage
   }
 
-  schemaMd5
-
-  viewer {
-    id
-  }
-
   wpGatsby {
     arePrettyPermalinksEnabled
   }
