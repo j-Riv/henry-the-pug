@@ -3,10 +3,10 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby WP Starter`,
+    title: `Henry the Pug`,
     author: `José A. Rivera`,
-    description: `A starter blog powered by Wordpress, demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `The life of Henry the Pug.`,
+    siteUrl: `https://henrythepug.com`,
     social: {
       twitter: `iam_jRiv`,
     },
@@ -55,6 +55,20 @@ module.exports = {
         // ex: `https://example.com/graphql`,
         url: process.env.WP_URL,
         verbose: true,
+        html: {
+          imageMaxWidth: 800,
+          imageQuality: 80,
+        },
+        schema: {
+          timeout: 120000,
+          requestConcurrency: 50,
+          perPage: 50,
+        },
+        type: {
+          __all: {
+            limit: 500,
+          },
+        },
         develop: {
           hardCacheMediaFiles: true,
         },
