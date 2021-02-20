@@ -10,6 +10,14 @@ const Container = styled.div`
   display: block;
   margin: 0 auto;
   max-width: 980px;
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 1em;
+    }
+    .caption {
+      font-size: 0.7em;
+    }
+  }
   @media only screen and (min-width: 1030px) {
     width: 100%;
     max-width: 1280px;
@@ -38,6 +46,12 @@ const Polaroid = styled.div`
   margin-bottom: 25px;
   .caption {
     transform: rotate(-2deg);
+    @media screen and (max-width: 768px) {
+      padding: 7px;
+    }
+    @media screen and (max-width: 1024px) {
+      padding: 15px;
+    }
   }
   position: relative;
 `
@@ -54,7 +68,7 @@ const Post: React.FC<Props> = ({ data }) => {
   return (
     <Layout location={window.location} title={post.title}>
       <SEO title={post.title} />
-      <Container>
+      <Container className="wrap">
         <h1>{post.title}</h1>
         <Polaroid>
           <Img
@@ -71,7 +85,9 @@ const Post: React.FC<Props> = ({ data }) => {
           <div
             className="caption"
             dangerouslySetInnerHTML={{
-              __html: post.content,
+              __html: post.content
+                ? post.content
+                : 'Why can’t I pee in the house if you can?',
             }}
           />
         </Polaroid>

@@ -42,9 +42,9 @@ const Page: React.FC<Props> = ({ data }) => {
   )
 
   return (
-    <Layout location={window.location} title={`Title: ` + StaticPage.title}>
+    <Layout location={window.location} title={`Title: ${StaticPage.title}`}>
       <SEO title={StaticPage.title} />
-      <Container>
+      <Container className="wrap">
         <h1>{StaticPage.title}</h1>
         <div className="featured-image">
           <Img

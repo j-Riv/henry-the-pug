@@ -40,7 +40,7 @@ const NotFoundPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout location={window.location} title={siteTitle}>
       <SEO title="404: Not Found" />
-      <Container>
+      <Container className="wrap">
         <h1>Not Found</h1>
         <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
       </Container>

@@ -14,6 +14,12 @@ const Container = styled.div`
     display: grid;
     gap: 2rem;
     grid-template-columns: 25% 1fr;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      h2 {
+        margin-top: 0;
+      }
+    }
     @media only screen and (min-width: 1030px) {
       width: 100%;
       max-width: 1280px;
