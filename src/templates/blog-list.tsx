@@ -49,7 +49,7 @@ const BlogList: React.FC<Props> = ({ data, pageContext }) => {
   const { currentPage, numPages } = pageContext
 
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="Photo Blog" />
       <Grid>
         {posts.map(({ node }: Node) => {

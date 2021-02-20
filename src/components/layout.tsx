@@ -18,7 +18,7 @@ const Container = styled.div`
 `
 
 interface Props {
-  location: Location
+  location?: Location
   title: string
   children?: any
 }

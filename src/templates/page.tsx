@@ -42,7 +42,7 @@ const Page: React.FC<Props> = ({ data }) => {
   )
 
   return (
-    <Layout location={window.location} title={`Title: ${StaticPage.title}`}>
+    <Layout title={`Title: ${StaticPage.title}`}>
       <SEO title={StaticPage.title} />
       <Container className="wrap">
         <h1>{StaticPage.title}</h1>

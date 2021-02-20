@@ -66,7 +66,7 @@ const Post: React.FC<Props> = ({ data }) => {
   const post = data.wpPost
 
   return (
-    <Layout location={window.location} title={post.title}>
+    <Layout title={post.title}>
       <SEO title={post.title} />
       <Container className="wrap">
         <h1>{post.title}</h1>
