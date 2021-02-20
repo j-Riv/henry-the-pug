@@ -25,6 +25,7 @@ interface Node {
 }
 
 interface Props {
+  location: Location
   data: {
     allWpPost: {
       edges: Node[]
@@ -38,13 +39,13 @@ interface Props {
   }
 }
 
-const BlogIndex: React.FC<Props> = ({ data }) => {
+const BlogIndex: React.FC<Props> = ({ location, data }) => {
   const siteTitle = data.site.siteMetadata.title
   const about = data.wpPage
   const posts = data.allWpPost.edges
 
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO title="I am Henry" />
       <Hero />
       <About about={about} />

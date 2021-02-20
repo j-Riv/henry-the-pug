@@ -25,6 +25,7 @@ const Container = styled.div`
 `
 
 interface Props {
+  location: Location
   data: {
     site: {
       siteMetadata: {
@@ -34,11 +35,11 @@ interface Props {
   }
 }
 
-const NotFoundPage: React.FC<Props> = ({ data }) => {
+const NotFoundPage: React.FC<Props> = ({ location, data }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={window.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO title="404: Not Found" />
       <Container className="wrap">
         <h1>Not Found</h1>
