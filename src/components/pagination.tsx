@@ -7,7 +7,14 @@ const Container = styled.div`
   margin: 0 auto;
   text-align: center;
   text-decoration: none;
-  margin: 15px 0;
+  margin: 15px auto;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  a {
+    &:hover {
+      color: #bc360a;
+    }
+  }
 `
 const PaginationLink = styled(Link)`
   font-weight: ${(props: { active: string }) =>

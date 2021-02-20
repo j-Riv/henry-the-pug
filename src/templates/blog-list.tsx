@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import GridImage from '../components/gridImage'
 import styled from 'styled-components'
 import Pagination from '../components/pagination'
+import { WpPost } from '../types'
 
 const Grid = styled.div`
   display: grid;
@@ -20,12 +21,7 @@ interface Props {
     allWpPost: {
       edges: [
         {
-          node: {
-            content: string
-            date: string
-            slug: string
-            title: string
-          }
+          node: WpPost
         }
       ]
     }

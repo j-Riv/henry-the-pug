@@ -70,6 +70,7 @@ const Hero: React.FC<Props> = () => {
         fit="cover"
         height="100vh"
         position="center"
+        alt="I am Henry"
       />
       <Overlay>
         <h2>I am Henry</h2>

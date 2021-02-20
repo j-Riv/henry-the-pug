@@ -1,6 +1,7 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { WpPage } from '../types'
 
 const Container = styled.div`
   background: #000;
@@ -24,28 +25,7 @@ const Container = styled.div`
 `
 
 interface Props {
-  about: {
-    slug: string
-    content: string
-    featuredImage: {
-      node: {
-        localFile: {
-          childImageSharp: {
-            fluid: {
-              aspectRatio: number
-              base64: string
-              originalImg: string
-              originalName: string
-              sizes: string
-              src: string
-              srcSet: string
-            }
-          }
-        }
-        sourceUrl: string
-      }
-    }
-  }
+  about: WpPage
 }
 
 const About: React.FC<Props> = props => {

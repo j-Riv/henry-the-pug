@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { WpPost } from '../types'
 
 const Container = styled.div`
   display: block;
@@ -38,25 +39,12 @@ const Polaroid = styled.div`
   .caption {
     transform: rotate(-2deg);
   }
+  position: relative;
 `
 
 interface Props {
   data: {
-    wpPost: {
-      title: string
-      content: string
-      featuredImage: {
-        node: {
-          sourceUrl: string
-          localFile: {
-            childImageSharp: {
-              fluid: any
-              fixed: any
-            }
-          }
-        }
-      }
-    }
+    wpPost: WpPost
   }
 }
 
@@ -71,6 +59,11 @@ const Post: React.FC<Props> = ({ data }) => {
         <Polaroid>
           <Img
             fluid={post.featuredImage.node.localFile.childImageSharp.fluid}
+            alt={
+              post.featuredImage.node.altText
+                ? post.featuredImage.node.altText
+                : post.title
+            }
           />
           {/* <Img
             fixed={post.featuredImage.node.localFile.childImageSharp.fixed}
@@ -97,6 +90,7 @@ export const postQuery = graphql`
       featuredImage {
         node {
           sourceUrl
+          altText
           localFile {
             childImageSharp {
               fluid(maxWidth: 800, quality: 100) {
@@ -106,11 +100,11 @@ export const postQuery = graphql`
                 sizes
                 ...GatsbyImageSharpFluid
               }
-              fixed(width: 800, quality: 100) {
-                originalName
-                src
-                ...GatsbyImageSharpFixed
-              }
+              # fixed(width: 800, quality: 100) {
+              #   originalName
+              #   src
+              #   ...GatsbyImageSharpFixed
+              # }
             }
           }
         }

@@ -11,13 +11,7 @@ const Container = styled.footer`
 `
 
 const Footer: React.FC = () => {
-  return (
-    <Container>
-      © {new Date().getFullYear()}, Henry the Pug - Built with
-      {` `}
-      <a href="https://www.gatsbyjs.org">Gatsby</a>
-    </Container>
-  )
+  return <Container>© {new Date().getFullYear()}, Henry the Pug</Container>
 }
 
 export default Footer
