@@ -27,12 +27,13 @@ const Container = styled.div`
 `
 
 interface Props {
+  location: Location
   data: {
     wpPage: WpPage
   }
 }
 
-const Page: React.FC<Props> = ({ data }) => {
+const Page: React.FC<Props> = ({ location, data }) => {
   const StaticPage = data.wpPage
 
   console.log(
@@ -42,7 +43,7 @@ const Page: React.FC<Props> = ({ data }) => {
   )
 
   return (
-    <Layout title={`Title: ${StaticPage.title}`}>
+    <Layout location={location} title={`Title: ${StaticPage.title}`}>
       <SEO title={StaticPage.title} />
       <Container className="wrap">
         <h1>{StaticPage.title}</h1>
@@ -78,7 +79,7 @@ export const pageQuery = graphql`
           altText
           localFile {
             childImageSharp {
-              fixed(width: 800, quality: 100) {
+              fixed(width: 800, quality: 60) {
                 originalName
                 src
                 ...GatsbyImageSharpFixed

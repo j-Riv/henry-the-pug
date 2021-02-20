@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Nav from './nav'
 import Footer from './footer'
@@ -18,18 +18,44 @@ const Container = styled.div`
 `
 
 interface Props {
-  location?: Location
+  location: Location
   title: string
   children?: any
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ location, children }) => {
+  const rootPath = `${__PATH_PREFIX__}/`
   let paddingTop = 72
   let backgroundColor = 'black'
+  if (location.pathname === rootPath) {
+    paddingTop = 0
+    backgroundColor = 'transparent'
+  }
+
+  const [navColor, setnavColor] = useState(backgroundColor)
+
+  if (typeof window !== `undefined`) {
+    const handleScroll = () => {
+      if (location.pathname === rootPath) {
+        if (window.scrollY > 50) {
+          setnavColor('black')
+        } else {
+          setnavColor('transparent')
+        }
+      }
+    }
+
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll)
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }, [handleScroll])
+  }
 
   return (
     <Container paddingTop={paddingTop}>
-      <Nav position="absolute" backgroundColor={backgroundColor} />
+      <Nav position="absolute" backgroundColor={navColor} />
       <main>{children}</main>
       <Footer />
     </Container>

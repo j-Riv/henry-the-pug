@@ -24,6 +24,7 @@ interface Node {
 }
 
 interface Props {
+  location: Location
   data: {
     allWpPost: {
       edges: Node[]
@@ -42,14 +43,14 @@ interface Props {
   }
 }
 
-const BlogList: React.FC<Props> = ({ data, pageContext }) => {
+const BlogList: React.FC<Props> = ({ location, data, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allWpPost.edges
 
   const { currentPage, numPages } = pageContext
 
   return (
-    <Layout title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO title="Photo Blog" />
       <Grid>
         {posts.map(({ node }: Node) => {
@@ -82,7 +83,7 @@ export const pageQuery = graphql`
               sourceUrl
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400, quality: 100) {
+                  fluid(maxWidth: 400, quality: 60) {
                     originalName
                     originalImg
                     src

@@ -57,16 +57,17 @@ const Polaroid = styled.div`
 `
 
 interface Props {
+  location: Location
   data: {
     wpPost: WpPost
   }
 }
 
-const Post: React.FC<Props> = ({ data }) => {
+const Post: React.FC<Props> = ({ location, data }) => {
   const post = data.wpPost
 
   return (
-    <Layout title={post.title}>
+    <Layout location={location} title={post.title}>
       <SEO title={post.title} />
       <Container className="wrap">
         <h1>{post.title}</h1>
@@ -109,7 +110,7 @@ export const postQuery = graphql`
           altText
           localFile {
             childImageSharp {
-              fluid(maxWidth: 800, quality: 100) {
+              fluid(maxWidth: 800, quality: 60) {
                 originalName
                 originalImg
                 src

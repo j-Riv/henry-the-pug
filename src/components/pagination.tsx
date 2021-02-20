@@ -9,7 +9,8 @@ const Container = styled.div`
   text-decoration: none;
   margin: 15px auto;
   max-width: 90%;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
+  line-break: anywhere;
   a {
     &:hover {
       color: #bc360a;
@@ -39,15 +40,14 @@ const Pagination: React.FC<Props> = props => {
   const prevPage =
     currentPage - 1 === 1 ? '/' : '/' + (currentPage - 1).toString()
   const nextPage = '/' + (currentPage + 1).toString()
-
   return (
     <Container>
       {!isFirst && (
         <PaginationLink to={`/blog` + prevPage} rel="prev">
-          ← Previous
+          Prev
         </PaginationLink>
       )}
-      {Array.from({ length: numPages }, (_, i) => (
+      {/* {Array.from({ length: numPages }, (_, i) => (
         <PaginationLink
           key={`pagination-number${i + 1}`}
           to={`/blog/${i === 0 ? '' : i + 1}`}
@@ -55,10 +55,13 @@ const Pagination: React.FC<Props> = props => {
         >
           {i + 1}
         </PaginationLink>
-      ))}
+      ))} */}
+      <PaginationLink to={`/blog/${currentPage}`} active="true">
+        {currentPage}
+      </PaginationLink>
       {!isLast && (
         <PaginationLink to={`/blog` + nextPage} rel="next">
-          Next →
+          Next
         </PaginationLink>
       )}
     </Container>

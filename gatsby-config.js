@@ -7,9 +7,6 @@ module.exports = {
     author: `José A. Rivera`,
     description: `The life of Henry the Pug.`,
     siteUrl: `https://henrythepug.com`,
-    social: {
-      twitter: `iam_jRiv`,
-    },
   },
   plugins: [
     {
@@ -24,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
     {
@@ -43,32 +40,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/utils/typography`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        // ex: `https://example.com/graphql`,
         url: process.env.WP_URL,
         verbose: true,
-        // html: {
-        //   imageMaxWidth: 800,
-        //   imageQuality: 80,
-        // },
-        // schema: {
-        //   timeout: 120000,
-        //   requestConcurrency: 50,
-        //   perPage: 50,
-        // },
-        // type: {
-        //   __all: {
-        //     limit: 500,
-        //   },
-        // },
         develop: {
           hardCacheMediaFiles: true,
         },

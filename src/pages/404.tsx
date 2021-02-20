@@ -38,7 +38,7 @@ const NotFoundPage: React.FC<Props> = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout title={siteTitle}>
+    <Layout location={window.location} title={siteTitle}>
       <SEO title="404: Not Found" />
       <Container className="wrap">
         <h1>Not Found</h1>

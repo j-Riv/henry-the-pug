@@ -44,7 +44,7 @@ const BlogIndex: React.FC<Props> = ({ data }) => {
   const posts = data.allWpPost.edges
 
   return (
-    <Layout title={siteTitle}>
+    <Layout location={window.location} title={siteTitle}>
       <SEO title="I am Henry" />
       <Hero />
       <About about={about} />
