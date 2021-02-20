@@ -16,14 +16,14 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
   }
 `
+interface Node {
+  node: WpPost
+}
+
 interface Props {
   data: {
     allWpPost: {
-      edges: [
-        {
-          node: WpPost
-        }
-      ]
+      edges: Node[]
     }
     site: {
       siteMetadata: {
@@ -49,7 +49,7 @@ const BlogList: React.FC<Props> = ({ data, pageContext }) => {
     <Layout location={window.location} title={siteTitle}>
       <SEO title="Photo Blog" />
       <Grid>
-        {posts.map(({ node }: any) => {
+        {posts.map(({ node }: Node) => {
           return node.featuredImage && <GridImage key={node.slug} node={node} />
         })}
       </Grid>

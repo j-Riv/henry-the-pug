@@ -6,10 +6,7 @@ import styled from 'styled-components'
 import Hero from '../components/hero'
 import About from '../components/about'
 import GridImage from '../components/gridImage'
-
-const Title = styled.h3`
-  margin-bottom: 5px;
-`
+import { WpPage, WpPost } from '../types'
 
 const Grid = styled.div`
   display: grid;
@@ -20,37 +17,21 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
   }
 `
+interface Node {
+  node: WpPost
+}
 
 interface Props {
   data: {
-    allWpPost: any
+    allWpPost: {
+      edges: Node[]
+    }
     site: {
       siteMetadata: {
         title: string
       }
     }
-    wpPage: {
-      slug: string
-      content: string
-      featuredImage: {
-        node: {
-          localFile: {
-            childImageSharp: {
-              fluid: {
-                aspectRatio: number
-                base64: string
-                originalImg: string
-                originalName: string
-                sizes: string
-                src: string
-                srcSet: string
-              }
-            }
-          }
-          sourceUrl: string
-        }
-      }
-    }
+    wpPage: WpPage
   }
 }
 
@@ -65,7 +46,7 @@ const BlogIndex: React.FC<Props> = ({ data }) => {
       <Hero />
       <About about={about} />
       <Grid>
-        {posts.map(({ node }: any) => {
+        {posts.map(({ node }: Node) => {
           return <GridImage key={node.slug} node={node} />
         })}
       </Grid>
@@ -85,6 +66,7 @@ export const pageQuery = graphql`
     wpPage(slug: { eq: "about" }) {
       slug
       content
+      title
       featuredImage {
         node {
           altText

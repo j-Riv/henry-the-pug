@@ -1,7 +1,7 @@
 import { FluidObject, FixedObject } from 'gatsby-image'
 
 export interface WpPage {
-  title: string
+  title?: string
   content: string
   featuredImage: FeaturedImage
 }

@@ -11,6 +11,10 @@ const Container = styled.div`
   main {
     padding-top: ${(props: { paddingTop: number }) => `${props.paddingTop}px`};
   }
+  .wrap {
+    width: 85%;
+    margin: 0 auto;
+  }
 `
 
 interface Props {

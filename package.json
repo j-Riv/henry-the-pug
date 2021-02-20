@@ -8,6 +8,7 @@
         "url": "https://github.com/gatsbyjs/gatsby/issues"
     },
     "dependencies": {
+        "@react-icons/all-files": "^4.1.0",
         "@wordpress/block-library": "^2.27.0",
         "babel-plugin-styled-components": "^1.11.1",
         "dotenv": "^8.2.0",

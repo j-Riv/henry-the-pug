@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { FaInstagram } from '@react-icons/all-files/fa/FaInstagram'
 
 const NavBar = styled.div`
   position: fixed;
@@ -13,6 +14,10 @@ const NavBar = styled.div`
   transition: all 1s;
   z-index: 10;
   background: ${(props: Props) => props.backgroundColor};
+  .wrap {
+    width: 85%;
+    margin: 0 auto;
+  }
   .inner {
     max-width: 980px;
     position: relative;
@@ -34,7 +39,8 @@ const NavBar = styled.div`
     ul {
       list-style: none;
       li {
-        display: inline;
+        display: inline-flex;
+        align-self: center;
       }
       li + li {
         margin-left: 15px;
@@ -43,6 +49,9 @@ const NavBar = styled.div`
         text-decoration: none;
         text-transform: uppercase;
         color: #fff;
+        &:hover {
+          color: #bc360a;
+        }
       }
     }
   }
@@ -50,6 +59,18 @@ const NavBar = styled.div`
     width: 100px;
     height: auto;
     margin: 8px 0;
+  }
+  .nav-icon {
+    display: inline-flex;
+    align-self: center;
+    svg {
+      height: 1em;
+      width: 1em;
+    }
+    &.svg-baseline {
+      top: 0.125em;
+      position: relative;
+    }
   }
 `
 interface Props {
@@ -74,7 +95,7 @@ const Nav: React.FC<Props> = props => {
 
   return (
     <NavBar backgroundColor={props.backgroundColor}>
-      <div className="inner">
+      <div className="inner wrap">
         <Link to="/">
           <Img className="logo" fluid={logo.childImageSharp.fluid} />
         </Link>
@@ -85,6 +106,17 @@ const Nav: React.FC<Props> = props => {
             </li>
             <li>
               <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <a
+                className="nav-icon svg-baseline"
+                href="https://instagram.com/puganddestroy"
+                target="_blank"
+                rel="noreferrer noopener"
+                title="View Source Code"
+              >
+                <FaInstagram />
+              </a>
             </li>
           </ul>
         </nav>
