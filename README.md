@@ -8,3 +8,5 @@
 # Henry the Pug
 
 > A photo blog for my pug, Henry. Powered by Gatsby and WordPress.
+
+![Henry the Pug](henry-the-pug-com.jpg)
