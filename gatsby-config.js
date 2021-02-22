@@ -19,21 +19,26 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          process.env.G_TAG, // Google Analytics / GA
+          // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
+          // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+        ],
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby WP Starter`,
-        short_name: `GatsbyJS`,
+        name: `Henry the Pug`,
+        short_name: `Henry The Pug`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        theme_color: `#000000`,
+        display: `standalone`,
+        icon: `content/assets/henry-icon.png`,
       },
     },
     `gatsby-plugin-offline`,
