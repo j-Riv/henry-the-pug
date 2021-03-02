@@ -55,11 +55,6 @@ module.exports = {
           timeout: 90000,
           requestConcurrency: 50,
           previewRequestConcurrency: 50,
-          html: {
-            useGatsbyImage: true,
-            fallbackImageMaxWidth: 800,
-            imageQuality: 50,
-          },
         },
         production: {
           hardCacheMediaFiles: true,
