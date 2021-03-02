@@ -45,6 +45,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-gatsby-cloud`,
     {
       resolve: `gatsby-source-wordpress`,
       options: {
