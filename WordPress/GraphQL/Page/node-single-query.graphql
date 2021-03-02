@@ -49,6 +49,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     id
     isFrontPage
     isPostsPage
+    isPrivacyPage
     isRevision
     lastEditedBy {
       node {

@@ -51,12 +51,29 @@ module.exports = {
       options: {
         url: process.env.WP_URL,
         verbose: true,
+        schema: {
+          timeout: 90000,
+          requestConcurrency: 50,
+          previewRequestConcurrency: 50,
+          html: {
+            useGatsbyImage: true,
+            fallbackImageMaxWidth: 800,
+            imageQuality: 50,
+          },
+        },
+        production: {
+          hardCacheMediaFiles: true,
+          allow404Images: true,
+        },
         develop: {
           hardCacheMediaFiles: true,
         },
         debug: {
+          throwRefetchErrors: true,
           graphql: {
             writeQueriesToDisk: true,
+            showQueryVarsOnError: true,
+            showQueryOnError: true,
           },
         },
       },

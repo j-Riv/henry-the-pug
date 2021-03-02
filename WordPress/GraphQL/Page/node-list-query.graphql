@@ -50,6 +50,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       id
       isFrontPage
       isPostsPage
+      isPrivacyPage
       isRevision
       lastEditedBy {
         node {
