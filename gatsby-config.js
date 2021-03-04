@@ -52,9 +52,9 @@ module.exports = {
         url: process.env.WP_URL,
         verbose: true,
         schema: {
-          timeout: 90000,
-          requestConcurrency: 5,
-          previewRequestConcurrency: 5,
+          timeout: 30000,
+          requestConcurrency: 2,
+          previewRequestConcurrency: 2,
         },
         production: {
           hardCacheMediaFiles: true,
