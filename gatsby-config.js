@@ -53,6 +53,7 @@ module.exports = {
         verbose: true,
         schema: {
           timeout: 90000,
+          perPage: 18,
           requestConcurrency: 1,
           previewRequestConcurrency: 1,
         },
