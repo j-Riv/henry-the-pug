@@ -49,7 +49,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.WP_URL,
+        url: process.env.WP_URL || `https://api.henrythepug.com`,
         verbose: true,
         schema: {
           timeout: 30000,
@@ -57,7 +57,6 @@ module.exports = {
           previewRequestConcurrency: 1,
         },
         production: {
-          hardCacheMediaFiles: true,
           allow404Images: true,
         },
         develop: {
