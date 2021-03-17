@@ -53,8 +53,8 @@ module.exports = {
         verbose: true,
         schema: {
           timeout: 30000,
-          requestConcurrency: 2,
-          previewRequestConcurrency: 2,
+          requestConcurrency: 1,
+          previewRequestConcurrency: 1,
         },
         production: {
           hardCacheMediaFiles: true,
