@@ -56,7 +56,7 @@
         "url": "git+https://github.com/j-Riv/henry-the-pug.git"
     },
     "scripts": {
-        "build": "gatsby build",
+        "build": "GATSBY_CONCURRENT_DOWNLOAD=5 gatsby build",
         "develop": "gatsby develop",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
         "start": "npm run develop",
