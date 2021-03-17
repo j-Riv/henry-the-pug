@@ -53,8 +53,8 @@ module.exports = {
         verbose: true,
         schema: {
           timeout: 30000,
-          requestConcurrency: 5,
-          previewRequestConcurrency: 5,
+          requestConcurrency: 2,
+          previewRequestConcurrency: 2,
         },
         production: {
           allow404Images: true,
