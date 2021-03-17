@@ -52,10 +52,9 @@ module.exports = {
         url: process.env.WP_URL || `https://api.henrythepug.com`,
         verbose: true,
         schema: {
-          timeout: 90000,
-          perPage: 18,
-          requestConcurrency: 5,
-          previewRequestConcurrency: 5,
+          timeout: 30000,
+          requestConcurrency: 1,
+          previewRequestConcurrency: 1,
         },
         type: {
           MediaItem: {
