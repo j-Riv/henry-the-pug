@@ -49,26 +49,30 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.WP_URL || `https://api.henrythepug.com`,
+        url: process.env.WP_URL || `https://api.henrythepug.com/graphql`,
+        type: {
+          // Post: {
+          //   limit: 200
+          // },
+          MediaItem: {
+            lazyNodes: true,
+            localFile: {
+              requestConcurrency: 1
+            }
+          }
+        },
         verbose: true,
         schema: {
-          timeout: 30000,
+          timeout: 60000,
           requestConcurrency: 1,
           previewRequestConcurrency: 1,
-        },
-        type: {
-          MediaItem: {
-            localFile: {
-              requestConcurrency: 1,
-            },
-          },
         },
         production: {
           allow404Images: true,
         },
-        develop: {
-          hardCacheMediaFiles: true,
-        },
+        // develop: {
+        //   hardCacheMediaFiles: true,
+        // },
         debug: {
           throwRefetchErrors: true,
           graphql: {
