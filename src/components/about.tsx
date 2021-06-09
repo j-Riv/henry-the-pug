@@ -1,7 +1,7 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { WpPage } from '../types'
+import { WpPage } from '../types/wordpress'
 
 const Container = styled.div`
   background: #000;

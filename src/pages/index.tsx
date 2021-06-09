@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Hero from '../components/hero'
 import About from '../components/about'
 import GridImage from '../components/gridImage'
-import { WpPage, WpPost } from '../types'
+import { WpPage, WpPost } from '../types/wordpress'
 
 const Grid = styled.div`
   display: grid;
@@ -84,7 +84,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allWpPost(limit: 6, skip: 0) {
+    allWpPost(sort: { fields: [date], order: DESC }, limit: 6, skip: 0) {
       edges {
         node {
           content

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { WpPost } from '../types'
+import { WpPost } from '../types/wordpress'
 
 const Container = styled.div``
 

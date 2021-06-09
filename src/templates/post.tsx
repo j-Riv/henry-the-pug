@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { WpPost } from '../types'
+import { WpPost } from '../types/wordpress'
 
 const Container = styled.div`
   display: block;

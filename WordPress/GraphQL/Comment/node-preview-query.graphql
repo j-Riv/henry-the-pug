@@ -4,8 +4,15 @@ query PREVIEW_QUERY($id: ID!) {
     approved
     author {
       node {
+        databaseId
+        email
         id
+        name
+        url
         __typename
+        ... on User {
+          id
+        }
       }
     }
     authorIp

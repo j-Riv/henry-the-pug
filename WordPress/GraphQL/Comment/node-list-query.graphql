@@ -5,8 +5,15 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       approved
       author {
         node {
+          databaseId
+          email
           id
+          name
+          url
           __typename
+          ... on User {
+            id
+          }
         }
       }
       authorIp

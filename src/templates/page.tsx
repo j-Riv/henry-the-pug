@@ -4,7 +4,7 @@ import Img, { FixedObject } from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import { WpPage } from '../types'
+import { WpPage } from '../types/wordpress'
 
 const Container = styled.div`
   display: block;

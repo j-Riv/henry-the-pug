@@ -5,7 +5,7 @@ import SEO from '../components/seo'
 import GridImage from '../components/gridImage'
 import styled from 'styled-components'
 import Pagination from '../components/pagination'
-import { WpPost } from '../types'
+import { WpPost } from '../types/wordpress'
 
 const Grid = styled.div`
   display: grid;
@@ -71,7 +71,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allWpPost(limit: $limit, skip: $skip) {
+    allWpPost(
+      sort: { fields: [date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           content
