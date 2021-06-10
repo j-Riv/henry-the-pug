@@ -1191,6 +1191,21 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/gloria-hallelujah@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/gloria-hallelujah/-/gloria-hallelujah-4.4.5.tgz#92613150b76fa7c2e7a09039187960f0ee255942"
+  integrity sha512-wiTjmRM42hKl911D6qwVk10XmSYiGCc19FGIoqeI+Nhq5xYzShmifNjUoXc7sTP8se0XhCJ70LGxiJWxpQdy4A==
+
+"@fontsource/space-mono@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/space-mono/-/space-mono-4.4.5.tgz#2acc2f08c5060bc983bfbf14f8827770a5ce3c2a"
+  integrity sha512-QBU55UPj+JOzkwI/ezR1y1qBk+iJtYhjxBTHqXJMTrKCXIuWMD+NIXvVYHIJW8i6Aov+6kOksgVOqrU7rqOK8Q==
+
+"@fontsource/work-sans@^4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.4.5.tgz#325b1eb0b021ba4e76df58dc09be847cb5902764"
+  integrity sha512-6hFChHr8OcegI7quAWItQbdk49Fc1dmkLY0awTwOrtjjoqIsmFDQCxBaqWxb+dotCOTzQUba+2VKriR8e7Bu5w==
+
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.6.tgz#4e8225836959be247890b66f21a3198a0589e34d"
