@@ -10,7 +10,6 @@ const Hero: React.FC = () => {
           height: '100vh',
         }}
         layout="fullWidth"
-        // aspectRatio={16 / 9}
         alt=""
         src={'../images/henry-portrait.jpg'}
         formats={['auto', 'webp', 'avif']}

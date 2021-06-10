@@ -8,9 +8,6 @@
         "url": "https://github.com/gatsbyjs/gatsby/issues"
     },
     "dependencies": {
-        "@fontsource/gloria-hallelujah": "^4.4.5",
-        "@fontsource/space-mono": "^4.4.5",
-        "@fontsource/work-sans": "^4.4.5",
         "@react-icons/all-files": "^4.1.0",
         "@wordpress/block-library": "^2.28.6",
         "babel-plugin-styled-components": "^1.12.0",
@@ -19,6 +16,7 @@
         "gatsby-plugin-catch-links": "^3.0.0",
         "gatsby-plugin-gatsby-cloud": "^2.7.1",
         "gatsby-plugin-google-gtag": "^3.0.0",
+        "gatsby-plugin-html-attributes": "^1.0.5",
         "gatsby-plugin-image": "^1.7.0",
         "gatsby-plugin-manifest": "^3.0.0",
         "gatsby-plugin-offline": "^4.0.0",

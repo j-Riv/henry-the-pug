@@ -7,8 +7,15 @@ module.exports = {
     author: `José A. Rivera`,
     description: `The life of Henry the Pug.`,
     siteUrl: `https://henrythepug.com`,
+    lang: `en`
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
