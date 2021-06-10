@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { FaInstagram } from '@react-icons/all-files/fa/FaInstagram'
 
@@ -79,24 +79,12 @@ interface Props {
 }
 
 const Nav: React.FC<Props> = props => {
-  const { logo } = useStaticQuery(
-    graphql`
-      {
-        logo: file(relativePath: { eq: "henry-the-pug-logo.png" }) {
-          childImageSharp {
-            gatsbyImageData(width: 100, layout: CONSTRAINED)
-          }
-        }
-      }
-    `
-  )
-
   return (
     <NavBar backgroundColor={props.backgroundColor}>
       <div className="inner wrap">
         <Link to="/">
-          <GatsbyImage
-            image={logo.childImageSharp.gatsbyImageData}
+          <StaticImage
+            src={'../images/henry-the-pug-logo.png'}
             className="logo"
             alt="Logo"
           />
