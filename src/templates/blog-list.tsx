@@ -90,7 +90,7 @@ export const pageQuery = graphql`
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    width: 480
+                    width: 400
                     quality: 60
                     placeholder: BLURRED
                     layout: CONSTRAINED
