@@ -16,8 +16,9 @@ module.exports = {
         path: path.join(__dirname, `src`, `images`),
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -57,9 +58,9 @@ module.exports = {
           MediaItem: {
             lazyNodes: true,
             localFile: {
-              requestConcurrency: 1
-            }
-          }
+              requestConcurrency: 1,
+            },
+          },
         },
         verbose: true,
         schema: {
@@ -84,4 +85,7 @@ module.exports = {
       },
     },
   ],
+  flags: {
+    FAST_DEV: true,
+  },
 }

@@ -61,7 +61,7 @@ const BlogIndex: React.FC<Props> = ({ location, data }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -76,9 +76,7 @@ export const pageQuery = graphql`
           altText
           localFile {
             childImageSharp {
-              fluid(maxWidth: 400) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(width: 400, layout: CONSTRAINED)
             }
           }
         }
@@ -96,13 +94,13 @@ export const pageQuery = graphql`
               sourceUrl
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400, quality: 100) {
-                    originalName
-                    originalImg
-                    src
-                    sizes
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(
+                    width: 800
+                    quality: 100
+                    placeholder: BLURRED
+                    layout: CONSTRAINED
+                    aspectRatio: 1
+                  )
                 }
               }
             }

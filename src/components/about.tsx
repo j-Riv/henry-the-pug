@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { WpPage } from '../types/wordpress'
 
@@ -39,9 +39,12 @@ const About: React.FC<Props> = props => {
   return (
     <Container>
       <div className="about-content">
-        <Img
+        <GatsbyImage
+          image={
+            about.featuredImage.node.localFile.childImageSharp.gatsbyImageData
+          }
           className="about-featured-image"
-          fluid={about.featuredImage.node.localFile.childImageSharp.fluid}
+          alt="About Henry the Pug"
         />
         <div
           dangerouslySetInnerHTML={{

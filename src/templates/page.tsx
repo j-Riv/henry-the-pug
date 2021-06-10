@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img, { FixedObject } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -38,7 +38,7 @@ const Page: React.FC<Props> = ({ location, data }) => {
 
   console.log(
     JSON.stringify(
-      StaticPage.featuredImage.node.localFile.childImageSharp.fixed
+      StaticPage.featuredImage.node.localFile.childImageSharp.gatsbyImageData
     )
   )
 
@@ -48,11 +48,12 @@ const Page: React.FC<Props> = ({ location, data }) => {
       <Container className="wrap">
         <h1>{StaticPage.title}</h1>
         <div className="featured-image">
-          <Img
-            className="about-featured-image"
-            fixed={
-              StaticPage.featuredImage.node.localFile.childImageSharp.fixed
+          <GatsbyImage
+            image={
+              StaticPage.featuredImage.node.localFile.childImageSharp
+                .gatsbyImageData
             }
+            className="about-featured-image"
             alt={StaticPage.title}
           />
         </div>
@@ -79,11 +80,12 @@ export const pageQuery = graphql`
           altText
           localFile {
             childImageSharp {
-              fixed(width: 800, quality: 60) {
-                originalName
-                src
-                ...GatsbyImageSharpFixed
-              }
+              gatsbyImageData(
+                width: 800
+                quality: 60
+                placeholder: BLURRED
+                layout: FIXED
+              )
             }
           }
         }

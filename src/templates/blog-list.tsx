@@ -47,6 +47,8 @@ const BlogList: React.FC<Props> = ({ location, data, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allWpPost.edges
 
+  console.log('POSTS', posts)
+
   const { currentPage, numPages } = pageContext
 
   return (
@@ -87,13 +89,13 @@ export const pageQuery = graphql`
               sourceUrl
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400, quality: 60) {
-                    originalName
-                    originalImg
-                    src
-                    sizes
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(
+                    width: 800
+                    quality: 60
+                    placeholder: BLURRED
+                    layout: CONSTRAINED
+                    aspectRatio: 1
+                  )
                 }
               }
             }
