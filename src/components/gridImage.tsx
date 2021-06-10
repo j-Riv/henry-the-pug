@@ -1,10 +1,19 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { WpPost } from '../types/wordpress'
 
-const Container = styled.div``
+const Container = styled.div`
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+`
 
 interface Props {
   node: WpPost
@@ -15,11 +24,10 @@ const GridImage: React.FC<Props> = props => {
   return (
     <Container>
       <Link to={`/blog/${node.slug}`}>
-        <Img
-          fluid={{
-            ...node.featuredImage.node.localFile.childImageSharp.fluid,
-            aspectRatio: 1,
-          }}
+        <GatsbyImage
+          image={
+            node.featuredImage.node.localFile.childImageSharp.gatsbyImageData
+          }
           alt={
             node.featuredImage.node.altText
               ? node.featuredImage.node.altText

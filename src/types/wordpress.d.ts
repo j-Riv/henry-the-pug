@@ -1,4 +1,4 @@
-import { FluidObject, FixedObject } from 'gatsby-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface WpPage {
   title: string
@@ -20,8 +20,7 @@ export interface FeaturedImage {
     caption: string
     localFile: {
       childImageSharp: {
-        fluid: FluidObject
-        fixed: FixedObject
+        gatsbyImageData: IGatsbyImageData
       }
     }
   }

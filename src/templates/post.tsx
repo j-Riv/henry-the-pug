@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { WpPost } from '../types/wordpress'
 
@@ -54,6 +54,15 @@ const Polaroid = styled.div`
     }
   }
   position: relative;
+  .gatsby-image-wrapper {
+    display: block;
+    width: 100%;
+    margin: auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 `
 
 interface Props {
@@ -72,17 +81,16 @@ const Post: React.FC<Props> = ({ location, data }) => {
       <Container className="wrap">
         <h1>{post.title}</h1>
         <Polaroid>
-          <Img
-            fluid={post.featuredImage.node.localFile.childImageSharp.fluid}
+          <GatsbyImage
+            image={
+              post.featuredImage.node.localFile.childImageSharp.gatsbyImageData
+            }
             alt={
               post.featuredImage.node.altText
                 ? post.featuredImage.node.altText
                 : post.title
             }
           />
-          {/* <Img
-            fixed={post.featuredImage.node.localFile.childImageSharp.fixed}
-          /> */}
           <div
             className="caption"
             dangerouslySetInnerHTML={{
@@ -110,18 +118,12 @@ export const postQuery = graphql`
           altText
           localFile {
             childImageSharp {
-              fluid(maxWidth: 800, quality: 60) {
-                originalName
-                originalImg
-                src
-                sizes
-                ...GatsbyImageSharpFluid
-              }
-              # fixed(width: 800, quality: 100) {
-              #   originalName
-              #   src
-              #   ...GatsbyImageSharpFixed
-              # }
+              gatsbyImageData(
+                width: 800
+                quality: 60
+                placeholder: BLURRED
+                layout: CONSTRAINED
+              )
             }
           }
         }
