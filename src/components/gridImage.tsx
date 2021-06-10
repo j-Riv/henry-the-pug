@@ -33,6 +33,7 @@ const GridImage: React.FC<Props> = props => {
               ? node.featuredImage.node.altText
               : node.title
           }
+          loading="lazy"
         />
       </Link>
     </Container>

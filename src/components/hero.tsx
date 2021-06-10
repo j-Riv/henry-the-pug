@@ -13,6 +13,10 @@ const Hero: React.FC = () => {
         alt=""
         src={'../images/henry-portrait.jpg'}
         formats={['auto', 'webp', 'avif']}
+        loading="eager"
+        objectFit="cover"
+        objectPosition="50% 50%"
+        placeholder="blurred"
       />
       <div
         style={{

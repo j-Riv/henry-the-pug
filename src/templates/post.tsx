@@ -27,6 +27,7 @@ const Container = styled.div`
   }
   h1 {
     font-family: 'Gloria Hallelujah', cursive;
+    font-display: swap;
   }
   img {
     margin: 0 auto;
@@ -34,8 +35,8 @@ const Container = styled.div`
 `
 const Polaroid = styled.div`
   transform: rotate(2deg);
-  /* font-family: 'Permanent Marker', cursive; */
   font-family: 'Gloria Hallelujah', cursive;
+  font-display: swap;
   font-size: 2.5em;
   color: #000;
   text-align: center;
