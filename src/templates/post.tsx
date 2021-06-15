@@ -123,7 +123,8 @@ export const postQuery = graphql`
                 width: 800
                 quality: 60
                 placeholder: BLURRED
-                layout: CONSTRAINED
+                layout: FULL_WIDTH
+                breakpoints: [750, 1080, 1366, 1920]
               )
             }
           }
