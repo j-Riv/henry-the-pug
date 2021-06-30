@@ -95,6 +95,7 @@ export const pageQuery = graphql`
                     placeholder: BLURRED
                     layout: CONSTRAINED
                     aspectRatio: 1
+                    formats: [AUTO, WEBP]
                   )
                 }
               }
