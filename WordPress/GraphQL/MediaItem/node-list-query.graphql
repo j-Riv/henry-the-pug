@@ -2,38 +2,46 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
   mediaItems(first: $first, after: $after) {
     nodes {
       altText
+
       ancestors(first: 100) {
         nodes {
           id
           __typename
         }
       }
+
       author {
         node {
           id
         }
       }
+
       authorDatabaseId
       authorId
       caption
+
       wpChildren: children(first: 100) {
         nodes {
           id
           __typename
         }
       }
+
       commentCount
       commentStatus
+
       comments(first: 100) {
         nodes {
           id
         }
       }
+
       contentType {
         node {
           id
         }
       }
+
       databaseId
       date
       dateGmt
@@ -43,15 +51,21 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       fileSize
       guid
       id
+      isContentNode
+      isTermNode
+
       lastEditedBy {
         node {
           id
         }
       }
+
       link
+
       mediaDetails {
         file
         height
+
         meta {
           aperture
           camera
@@ -66,6 +80,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
           shutterSpeed
           title
         }
+
         sizes {
           file
           fileSize
@@ -75,19 +90,23 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
           sourceUrl
           width
         }
+
         width
       }
+
       mediaItemUrl
       mediaType
       mimeType
       modified
       modifiedGmt
+
       wpParent: parent {
         node {
           id
           __typename
         }
       }
+
       parentDatabaseId
       parentId
       sizes
@@ -95,10 +114,13 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       sourceUrl
       srcSet
       status
+
       template {
         templateName
+
         __typename
       }
+
       title
       uri
       __typename

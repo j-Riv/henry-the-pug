@@ -5,11 +5,13 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       databaseId
       id
       locations
+
       menuItems(first: 100) {
         nodes {
           id
         }
       }
+
       name
       slug
       __typename

@@ -1,38 +1,46 @@
 query SINGLE_CONTENT_QUERY($id: ID!) {
   mediaItem(id: $id) {
     altText
+
     ancestors(first: 100) {
       nodes {
         id
         __typename
       }
     }
+
     author {
       node {
         id
       }
     }
+
     authorDatabaseId
     authorId
     caption
+
     wpChildren: children(first: 100) {
       nodes {
         id
         __typename
       }
     }
+
     commentCount
     commentStatus
+
     comments(first: 100) {
       nodes {
         id
       }
     }
+
     contentType {
       node {
         id
       }
     }
+
     databaseId
     date
     dateGmt
@@ -42,15 +50,21 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     fileSize
     guid
     id
+    isContentNode
+    isTermNode
+
     lastEditedBy {
       node {
         id
       }
     }
+
     link
+
     mediaDetails {
       file
       height
+
       meta {
         aperture
         camera
@@ -65,6 +79,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
         shutterSpeed
         title
       }
+
       sizes {
         file
         fileSize
@@ -74,19 +89,23 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
         sourceUrl
         width
       }
+
       width
     }
+
     mediaItemUrl
     mediaType
     mimeType
     modified
     modifiedGmt
+
     wpParent: parent {
       node {
         id
         __typename
       }
     }
+
     parentDatabaseId
     parentId
     sizes
@@ -94,10 +113,13 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     sourceUrl
     srcSet
     status
+
     template {
       templateName
+
       __typename
     }
+
     title
     uri
     __typename

@@ -6,12 +6,14 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
           id
         }
       }
+
       connectedNode {
         node {
           id
           __typename
         }
       }
+
       cssClasses
       databaseId
       description
@@ -19,11 +21,13 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       label
       linkRelationship
       locations
+
       menu {
         node {
           id
         }
       }
+
       order
       parentDatabaseId
       parentId
