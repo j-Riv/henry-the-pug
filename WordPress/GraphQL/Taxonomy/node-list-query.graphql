@@ -2,11 +2,13 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
   taxonomies(first: $first, after: $after) {
     nodes {
       archivePath
+
       connectedContentTypes(first: 100) {
         nodes {
           id
         }
       }
+
       description
       graphqlPluralName
       graphqlSingleName

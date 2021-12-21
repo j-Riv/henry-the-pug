@@ -57,7 +57,6 @@ module.exports = {
           //   limit: 200
           // },
           MediaItem: {
-            lazyNodes: true,
             localFile: {
               requestConcurrency: 1,
             },

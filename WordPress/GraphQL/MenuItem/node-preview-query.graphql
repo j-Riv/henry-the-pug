@@ -5,12 +5,14 @@ query PREVIEW_QUERY($id: ID!) {
         id
       }
     }
+
     connectedNode {
       node {
         id
         __typename
       }
     }
+
     cssClasses
     databaseId
     description
@@ -18,11 +20,13 @@ query PREVIEW_QUERY($id: ID!) {
     label
     linkRelationship
     locations
+
     menu {
       node {
         id
       }
     }
+
     order
     parentDatabaseId
     parentId

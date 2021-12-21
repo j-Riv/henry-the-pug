@@ -6,41 +6,53 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
           id
         }
       }
+
       wpChildren: children(first: 100) {
         nodes {
           id
         }
       }
+
       contentNodes(first: 100) {
         nodes {
           id
           __typename
         }
       }
+
       count
       databaseId
       description
       id
+      isContentNode
+      isTermNode
       link
       name
+
       wpParent: parent {
         node {
           id
         }
       }
+
       parentDatabaseId
       parentId
+
       posts(first: 100) {
         nodes {
           id
         }
       }
+
       slug
+
       taxonomy {
         node {
           id
         }
       }
+
+      taxonomyName
       termGroupId
       termTaxonomyId
       uri

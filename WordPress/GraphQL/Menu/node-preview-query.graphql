@@ -4,11 +4,13 @@ query PREVIEW_QUERY($id: ID!) {
     databaseId
     id
     locations
+
     menuItems(first: 100) {
       nodes {
         id
       }
     }
+
     name
     slug
     __typename

@@ -2,17 +2,20 @@ query PREVIEW_QUERY($id: ID!) {
   contentType(id: $id, idType: ID, asPreview: true) {
     archivePath
     canExport
+
     connectedTaxonomies(first: 100) {
       nodes {
         id
       }
     }
+
     contentNodes(first: 100) {
       nodes {
         id
         __typename
       }
     }
+
     deleteWithUser
     description
     excludeFromSearch
@@ -21,9 +24,12 @@ query PREVIEW_QUERY($id: ID!) {
     hasArchive
     hierarchical
     id
+    isContentNode
     isFrontPage
     isPostsPage
+    isTermNode
     label
+
     labels {
       addNew
       addNewItem
@@ -51,6 +57,7 @@ query PREVIEW_QUERY($id: ID!) {
       viewItem
       viewItems
     }
+
     menuIcon
     menuPosition
     name
