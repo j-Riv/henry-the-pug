@@ -1,13 +1,15 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/Gatsby-Monogram.svg" width="60" />
+    <img alt="Gatsby" src="https://www.svgrepo.com/show/355032/gatsbyjs.svg" width="60" />
   </a>
 </p>
 
 # Henry the Pug
 
 > A photo blog for my pug, Henry. Powered by Gatsby and WordPress.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c13cd5a5-011b-4c96-bbc0-c68ef738640c/deploy-status)](https://app.netlify.com/sites/henry-the-pug/deploys)
 
 ![Henry the Pug](henry-the-pug-com.jpg)
 
