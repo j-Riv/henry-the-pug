@@ -5,7 +5,29 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       connectedContentTypes(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
+      }
+
+      connectedTerms(first: 100) {
+        nodes {
+          __typename
+          id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 

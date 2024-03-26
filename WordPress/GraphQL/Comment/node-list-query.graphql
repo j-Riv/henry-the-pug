@@ -2,10 +2,22 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
   comments(first: $first, after: $after) {
     nodes {
       agent
-      approved
 
       author {
         node {
+          avatar {
+            default
+            extraAttr
+            forceDefault
+            foundAvatar
+            height
+            rating
+            scheme
+            size
+            url
+            width
+          }
+
           databaseId
           email
           id
@@ -24,8 +36,61 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       commentedOn {
         node {
+          contentType {
+            node {
+              __typename
+              id
+            }
+          }
+
+          contentTypeName
+          databaseId
+          date
+          dateGmt
+          desiredSlug
+          enclosure
+          guid
           id
+          isComment
+          isContentNode
+          isFrontPage
+          isPostsPage
+          isTermNode
+
+          lastEditedBy {
+            node {
+              __typename
+              id
+            }
+          }
+
+          link
+          modified
+          modifiedGmt
+          slug
+          status
+
+          template {
+            templateName
+
+            __typename
+          }
+
+          uri
+
           __typename
+
+          ... on MediaItem {
+            id
+          }
+
+          ... on Page {
+            id
+          }
+
+          ... on Post {
+            id
+          }
         }
       }
 
@@ -34,10 +99,17 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       date
       dateGmt
       id
+      isComment
+      isContentNode
+      isFrontPage
+      isPostsPage
+      isTermNode
       karma
+      link
 
       wpParent: parent {
         node {
+          __typename
           id
         }
       }
@@ -47,11 +119,21 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       replies(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
+      status
       type
+      uri
       __typename
     }
     pageInfo {

@@ -3,14 +3,22 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
     nodes {
       childItems(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
       connectedNode {
         node {
-          id
           __typename
+          id
         }
       }
 
@@ -24,6 +32,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       menu {
         node {
+          __typename
           id
         }
       }
@@ -34,6 +43,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       path
       target
       title
+      uri
       url
       __typename
     }

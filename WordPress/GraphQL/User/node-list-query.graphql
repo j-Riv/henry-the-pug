@@ -19,7 +19,15 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       comments(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
@@ -29,7 +37,10 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       extraCapabilities
       firstName
       id
+      isComment
       isContentNode
+      isFrontPage
+      isPostsPage
       isTermNode
       lastName
       locale
@@ -39,13 +50,29 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       pages(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
       posts(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
@@ -53,10 +80,19 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       roles(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
+      shouldShowAdminToolbar
       slug
       uri
       url

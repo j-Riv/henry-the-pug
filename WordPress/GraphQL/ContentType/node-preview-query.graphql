@@ -5,14 +5,82 @@ query PREVIEW_QUERY($id: ID!) {
 
     connectedTaxonomies(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
     contentNodes(first: 100) {
       nodes {
+        contentType {
+          node {
+            __typename
+            id
+          }
+        }
+
+        contentTypeName
+        databaseId
+        date
+        dateGmt
+        desiredSlug
+        enclosure
+        guid
         id
+        isComment
+        isContentNode
+        isFrontPage
+        isPostsPage
+        isTermNode
+
+        lastEditedBy {
+          node {
+            __typename
+            id
+          }
+        }
+
+        link
+        modified
+        modifiedGmt
+        slug
+        status
+
+        template {
+          templateName
+
+          __typename
+        }
+
+        uri
+
         __typename
+
+        ... on MediaItem {
+          id
+        }
+
+        ... on Page {
+          id
+        }
+
+        ... on Post {
+          id
+        }
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
@@ -24,6 +92,7 @@ query PREVIEW_QUERY($id: ID!) {
     hasArchive
     hierarchical
     id
+    isComment
     isContentNode
     isFrontPage
     isPostsPage

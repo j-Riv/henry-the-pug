@@ -2,13 +2,74 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
   page(id: $id) {
     ancestors(first: 100) {
       nodes {
+        contentType {
+          node {
+            __typename
+            id
+          }
+        }
+
+        contentTypeName
+        databaseId
+        date
+        dateGmt
+        desiredSlug
+        enclosure
+        guid
         id
+        isComment
+        isContentNode
+        isFrontPage
+        isPostsPage
+        isTermNode
+
+        lastEditedBy {
+          node {
+            __typename
+            id
+          }
+        }
+
+        link
+        modified
+        modifiedGmt
+        slug
+        status
+
+        template {
+          templateName
+
+          __typename
+        }
+
+        uri
+
         __typename
+
+        ... on MediaItem {
+          id
+        }
+
+        ... on Page {
+          id
+        }
+
+        ... on Post {
+          id
+        }
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
     author {
       node {
+        __typename
         id
       }
     }
@@ -18,17 +79,68 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     wpChildren: children(first: 100) {
       nodes {
+        contentType {
+          node {
+            __typename
+            id
+          }
+        }
+
+        contentTypeName
+        databaseId
+        date
+        dateGmt
+        desiredSlug
+        enclosure
+        guid
         id
+        isComment
+        isContentNode
+        isFrontPage
+        isPostsPage
+        isTermNode
+
+        lastEditedBy {
+          node {
+            __typename
+            id
+          }
+        }
+
+        link
+        modified
+        modifiedGmt
+        slug
+        status
+
+        template {
+          templateName
+
+          __typename
+        }
+
+        uri
+
         __typename
+
+        ... on MediaItem {
+          id
+        }
+
+        ... on Page {
+          id
+        }
+
+        ... on Post {
+          id
+        }
       }
-    }
 
-    commentCount
-    commentStatus
-
-    comments(first: 100) {
-      nodes {
-        id
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
@@ -36,10 +148,12 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     contentType {
       node {
+        __typename
         id
       }
     }
 
+    contentTypeName
     databaseId
     date
     dateGmt
@@ -57,6 +171,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     featuredImageId
     guid
     id
+    isComment
     isContentNode
     isFrontPage
     isPostsPage
@@ -66,6 +181,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     lastEditedBy {
       node {
+        __typename
         id
       }
     }
@@ -77,8 +193,61 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     wpParent: parent {
       node {
+        contentType {
+          node {
+            __typename
+            id
+          }
+        }
+
+        contentTypeName
+        databaseId
+        date
+        dateGmt
+        desiredSlug
+        enclosure
+        guid
         id
+        isComment
+        isContentNode
+        isFrontPage
+        isPostsPage
+        isTermNode
+
+        lastEditedBy {
+          node {
+            __typename
+            id
+          }
+        }
+
+        link
+        modified
+        modifiedGmt
+        slug
+        status
+
+        template {
+          templateName
+
+          __typename
+        }
+
+        uri
+
         __typename
+
+        ... on MediaItem {
+          id
+        }
+
+        ... on Page {
+          id
+        }
+
+        ... on Post {
+          id
+        }
       }
     }
 

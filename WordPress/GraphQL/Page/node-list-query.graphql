@@ -3,13 +3,74 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
     nodes {
       ancestors(first: 100) {
         nodes {
+          contentType {
+            node {
+              __typename
+              id
+            }
+          }
+
+          contentTypeName
+          databaseId
+          date
+          dateGmt
+          desiredSlug
+          enclosure
+          guid
           id
+          isComment
+          isContentNode
+          isFrontPage
+          isPostsPage
+          isTermNode
+
+          lastEditedBy {
+            node {
+              __typename
+              id
+            }
+          }
+
+          link
+          modified
+          modifiedGmt
+          slug
+          status
+
+          template {
+            templateName
+
+            __typename
+          }
+
+          uri
+
           __typename
+
+          ... on MediaItem {
+            id
+          }
+
+          ... on Page {
+            id
+          }
+
+          ... on Post {
+            id
+          }
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
       author {
         node {
+          __typename
           id
         }
       }
@@ -19,17 +80,68 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       wpChildren: children(first: 100) {
         nodes {
+          contentType {
+            node {
+              __typename
+              id
+            }
+          }
+
+          contentTypeName
+          databaseId
+          date
+          dateGmt
+          desiredSlug
+          enclosure
+          guid
           id
+          isComment
+          isContentNode
+          isFrontPage
+          isPostsPage
+          isTermNode
+
+          lastEditedBy {
+            node {
+              __typename
+              id
+            }
+          }
+
+          link
+          modified
+          modifiedGmt
+          slug
+          status
+
+          template {
+            templateName
+
+            __typename
+          }
+
+          uri
+
           __typename
+
+          ... on MediaItem {
+            id
+          }
+
+          ... on Page {
+            id
+          }
+
+          ... on Post {
+            id
+          }
         }
-      }
 
-      commentCount
-      commentStatus
-
-      comments(first: 100) {
-        nodes {
-          id
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 
@@ -37,10 +149,12 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       contentType {
         node {
+          __typename
           id
         }
       }
 
+      contentTypeName
       databaseId
       date
       dateGmt
@@ -58,6 +172,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       featuredImageId
       guid
       id
+      isComment
       isContentNode
       isFrontPage
       isPostsPage
@@ -67,6 +182,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       lastEditedBy {
         node {
+          __typename
           id
         }
       }
@@ -78,8 +194,61 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       wpParent: parent {
         node {
+          contentType {
+            node {
+              __typename
+              id
+            }
+          }
+
+          contentTypeName
+          databaseId
+          date
+          dateGmt
+          desiredSlug
+          enclosure
+          guid
           id
+          isComment
+          isContentNode
+          isFrontPage
+          isPostsPage
+          isTermNode
+
+          lastEditedBy {
+            node {
+              __typename
+              id
+            }
+          }
+
+          link
+          modified
+          modifiedGmt
+          slug
+          status
+
+          template {
+            templateName
+
+            __typename
+          }
+
+          uri
+
           __typename
+
+          ... on MediaItem {
+            id
+          }
+
+          ... on Page {
+            id
+          }
+
+          ... on Post {
+            id
+          }
         }
       }
 

@@ -7,7 +7,15 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     menuItems(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 

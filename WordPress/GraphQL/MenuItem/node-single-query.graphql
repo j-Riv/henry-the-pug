@@ -2,14 +2,22 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
   menuItem(id: $id) {
     childItems(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
     connectedNode {
       node {
-        id
         __typename
+        id
       }
     }
 
@@ -23,6 +31,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     menu {
       node {
+        __typename
         id
       }
     }
@@ -33,6 +42,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     path
     target
     title
+    uri
     url
     __typename
   }

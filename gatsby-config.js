@@ -53,9 +53,9 @@ module.exports = {
       options: {
         url: process.env.WP_URL || `https://api.henrythepug.com/graphql`,
         type: {
-          // Post: {
-          //   limit: 200
-          // },
+          Post: {
+            limit: 500
+          },
           MediaItem: {
             localFile: {
               requestConcurrency: 1,
@@ -77,6 +77,8 @@ module.exports = {
         debug: {
           throwRefetchErrors: true,
           graphql: {
+            showQueryOnError: true,
+            showQueryVarsOnError: true,
             writeQueriesToDisk: true,
             showQueryVarsOnError: true,
             showQueryOnError: true,

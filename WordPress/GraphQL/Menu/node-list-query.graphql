@@ -8,7 +8,15 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
 
       menuItems(first: 100) {
         nodes {
+          __typename
           id
+        }
+
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
         }
       }
 

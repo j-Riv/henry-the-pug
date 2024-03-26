@@ -2,6 +2,7 @@ query PREVIEW_QUERY($id: ID!) {
   post(id: $id, idType: ID, asPreview: true) {
     author {
       node {
+        __typename
         id
       }
     }
@@ -11,16 +12,15 @@ query PREVIEW_QUERY($id: ID!) {
 
     categories(first: 100) {
       nodes {
+        __typename
         id
       }
-    }
 
-    commentCount
-    commentStatus
-
-    comments(first: 100) {
-      nodes {
-        id
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
@@ -28,10 +28,12 @@ query PREVIEW_QUERY($id: ID!) {
 
     contentType {
       node {
+        __typename
         id
       }
     }
 
+    contentTypeName
     databaseId
     date
     dateGmt
@@ -50,13 +52,17 @@ query PREVIEW_QUERY($id: ID!) {
     featuredImageId
     guid
     id
+    isComment
     isContentNode
+    isFrontPage
+    isPostsPage
     isRevision
     isSticky
     isTermNode
 
     lastEditedBy {
       node {
+        __typename
         id
       }
     }
@@ -64,12 +70,18 @@ query PREVIEW_QUERY($id: ID!) {
     link
     modified
     modifiedGmt
-    pingStatus
-    pinged
 
     postFormats(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
@@ -78,7 +90,15 @@ query PREVIEW_QUERY($id: ID!) {
 
     tags(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
@@ -90,13 +110,19 @@ query PREVIEW_QUERY($id: ID!) {
 
     terms(first: 100) {
       nodes {
-        id
         __typename
+        id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
     title
-    toPing
     uri
     __typename
   }

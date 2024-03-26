@@ -11,7 +11,10 @@ query NON_NODE_QUERY {
     generalSettingsTimezone
     generalSettingsTitle
     generalSettingsUrl
+    readingSettingsPageForPosts
+    readingSettingsPageOnFront
     readingSettingsPostsPerPage
+    readingSettingsShowOnFront
     writingSettingsDefaultCategory
     writingSettingsDefaultPostFormat
     writingSettingsUseSmilies
@@ -35,12 +38,16 @@ query NON_NODE_QUERY {
   }
 
   readingSettings {
+    pageForPosts
+    pageOnFront
     postsPerPage
+    showOnFront
   }
 
   schemaMd5
 
   viewer {
+    __typename
     id
   }
 

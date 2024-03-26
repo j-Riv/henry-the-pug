@@ -1,10 +1,22 @@
 query PREVIEW_QUERY($id: ID!) {
   comment(id: $id, idType: ID, asPreview: true) {
     agent
-    approved
 
     author {
       node {
+        avatar {
+          default
+          extraAttr
+          forceDefault
+          foundAvatar
+          height
+          rating
+          scheme
+          size
+          url
+          width
+        }
+
         databaseId
         email
         id
@@ -23,8 +35,61 @@ query PREVIEW_QUERY($id: ID!) {
 
     commentedOn {
       node {
+        contentType {
+          node {
+            __typename
+            id
+          }
+        }
+
+        contentTypeName
+        databaseId
+        date
+        dateGmt
+        desiredSlug
+        enclosure
+        guid
         id
+        isComment
+        isContentNode
+        isFrontPage
+        isPostsPage
+        isTermNode
+
+        lastEditedBy {
+          node {
+            __typename
+            id
+          }
+        }
+
+        link
+        modified
+        modifiedGmt
+        slug
+        status
+
+        template {
+          templateName
+
+          __typename
+        }
+
+        uri
+
         __typename
+
+        ... on MediaItem {
+          id
+        }
+
+        ... on Page {
+          id
+        }
+
+        ... on Post {
+          id
+        }
       }
     }
 
@@ -33,10 +98,17 @@ query PREVIEW_QUERY($id: ID!) {
     date
     dateGmt
     id
+    isComment
+    isContentNode
+    isFrontPage
+    isPostsPage
+    isTermNode
     karma
+    link
 
     wpParent: parent {
       node {
+        __typename
         id
       }
     }
@@ -46,11 +118,21 @@ query PREVIEW_QUERY($id: ID!) {
 
     replies(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
+    status
     type
+    uri
     __typename
   }
 }

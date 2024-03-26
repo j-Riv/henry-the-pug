@@ -2,20 +2,96 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
   category(id: $id) {
     ancestors(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
     wpChildren: children(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
     contentNodes(first: 100) {
       nodes {
+        contentType {
+          node {
+            __typename
+            id
+          }
+        }
+
+        contentTypeName
+        databaseId
+        date
+        dateGmt
+        desiredSlug
+        enclosure
+        guid
         id
+        isComment
+        isContentNode
+        isFrontPage
+        isPostsPage
+        isTermNode
+
+        lastEditedBy {
+          node {
+            __typename
+            id
+          }
+        }
+
+        link
+        modified
+        modifiedGmt
+        slug
+        status
+
+        template {
+          templateName
+
+          __typename
+        }
+
+        uri
+
         __typename
+
+        ... on MediaItem {
+          id
+        }
+
+        ... on Page {
+          id
+        }
+
+        ... on Post {
+          id
+        }
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
@@ -23,13 +99,17 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     databaseId
     description
     id
+    isComment
     isContentNode
+    isFrontPage
+    isPostsPage
     isTermNode
     link
     name
 
     wpParent: parent {
       node {
+        __typename
         id
       }
     }
@@ -39,7 +119,15 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     posts(first: 100) {
       nodes {
+        __typename
         id
+      }
+
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
       }
     }
 
@@ -47,6 +135,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
 
     taxonomy {
       node {
+        __typename
         id
       }
     }
